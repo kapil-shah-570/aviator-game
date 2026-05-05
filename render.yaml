@@ -30,7 +30,3 @@ services:
     envVars:
       - key: BACKEND_URL
         value: https://aviator-backend.onrender.com
-      - key: VITE_API_URL
-        value: https://aviator-backend.onrender.com
-      - key: VITE_SOCKET_URL
-        value: https://aviator-backend.onrender.com
