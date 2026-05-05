@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "node scripts/dev.js",
-    "build": "npm run build --prefix frontend",
+    "build": "npm install --prefix frontend && npm run build --prefix frontend",
     "start": "npm run start --prefix backend"
   },
   "devDependencies": {
