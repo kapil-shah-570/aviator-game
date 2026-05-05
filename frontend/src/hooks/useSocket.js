@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import io from 'socket.io-client';
 import { useAuth } from './useAuth';
+import { SOCKET_URL } from '../config/env';
 
 export const useSocket = () => {
   const { user } = useAuth();
@@ -10,7 +11,7 @@ export const useSocket = () => {
   useEffect(() => {
     if (!user) return;
     
-    socketRef.current = io(import.meta.env.VITE_SOCKET_URL || 'http://localhost:5000', {
+    socketRef.current = io(SOCKET_URL, {
       auth: { token: localStorage.getItem('token') }
     });
     

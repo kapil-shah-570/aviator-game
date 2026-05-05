@@ -6,6 +6,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
+  envPrefix: ['VITE_', 'BACKEND_'],
   server: {
     port: 3000,
     proxy: {
@@ -14,9 +15,9 @@ export default defineConfig({
         target: 'http://localhost:5000',
         ws: true
       }
-    },
-      build: {
+    }
+  },
+  build: {
     chunkSizeWarningLimit: 1000
-  }
   }
 })

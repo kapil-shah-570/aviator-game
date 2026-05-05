@@ -18,6 +18,8 @@ services:
         sync: false
       - key: ADMIN_SECRET
         sync: false
+      - key: FRONTEND_URL
+        value: https://aviator-frontend.onrender.com
 
   - type: web
     name: aviator-frontend
@@ -26,6 +28,8 @@ services:
     buildCommand: npm install && npm run build
     staticPublishPath: dist
     envVars:
+      - key: BACKEND_URL
+        value: https://aviator-backend.onrender.com
       - key: VITE_API_URL
         value: https://aviator-backend.onrender.com
       - key: VITE_SOCKET_URL
