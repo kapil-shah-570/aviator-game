@@ -20,7 +20,7 @@ const io = new Server(server, {
 const PORT = process.env.PORT || 5000;
 
 const startServer = async () => {
-  await connectDB();
+  const dbConnected = await connectDB();
 
   // Middleware
   app.use(cors());
@@ -39,6 +39,9 @@ const startServer = async () => {
 
   server.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
+    if (!dbConnected) {
+      console.warn('MongoDB is not connected. Database-backed routes will fail until the Atlas network access is fixed.');
+    }
   });
 };
 
